@@ -165,7 +165,7 @@ class CPT_Lowry_Podcasts extends RBM_CPT {
 		
 		$podcast_image_url = '';
 		if ( $podcast_image_id ) {
-			$podcast_image_url = wp_get_attachment_image_url( $podcast_image_id );
+			$podcast_image_url = wp_get_attachment_image_url( $podcast_image_id, 'full' );
 		}
 			
 		?>
@@ -204,7 +204,7 @@ class CPT_Lowry_Podcasts extends RBM_CPT {
 		
 		if ( get_post_type() !== $this->post_type ) return;
 		
-		$podcast_image_id = get_option( '_rbm_lowry_podcast_image' );
+		$podcast_image_id = get_option( '_rbm_lowry_podcast_image', 'full' );
 		
 		$podcast_image_url = '';
 		if ( $podcast_image_id ) {
