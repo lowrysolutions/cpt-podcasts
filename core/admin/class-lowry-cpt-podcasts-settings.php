@@ -204,6 +204,9 @@ class Lowry_CPT_Podcasts_Settings {
 				'id' => 'lowry_podcast_image',
 				'type' => 'image',
 				'label' => __( 'Podcast Image', 'lowry-cpt-podcasts' ),
+				'args' => array(
+					'description' => __( 'Maximum Size: 2048px x 2048px', 'lowry-cpt-podcasts' ),
+				),
 			),
 			array(
 				'id' => 'lowry_podcast_rating',

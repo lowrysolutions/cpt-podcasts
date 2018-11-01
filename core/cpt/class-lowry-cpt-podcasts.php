@@ -53,6 +53,8 @@ class CPT_Lowry_Podcasts extends RBM_CPT {
 		
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
 		
+		add_action( 'rss2_ns', array( $this, 'add_podcast_namespaces' ) );
+		
 		add_action( 'rss2_head', array( $this, 'add_to_rss_channel' ) );
 		
 		add_action( 'rss2_item', array( $this, 'add_to_rss_item' ) );
@@ -65,6 +67,13 @@ class CPT_Lowry_Podcasts extends RBM_CPT {
 		
 	}
 	
+	/**
+	 * Add RSS Feed to <head>
+	 *
+	 * @access		public
+	 * @since		{{VERSION}}
+	 * @return		void
+	 */
 	public function show_rss_feed() {
 		
 		$feed = get_post_type_archive_feed_link( $this->post_type );
@@ -126,6 +135,22 @@ class CPT_Lowry_Podcasts extends RBM_CPT {
 	}
 	
 	/**
+	 * Add Podcast Namespaces
+	 * 
+	 * @access		public
+	 * @since		{{VERSION}}
+	 * @return		void
+	 */
+	public function add_podcast_namespaces() {
+		
+		if ( get_post_type() !== $this->post_type ) return;
+		
+		echo 'xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+		xmlns:rawvoice="http://www.rawvoice.com/rawvoiceRssModule/"';
+		
+	}
+	
+	/**
 	 * Add information for the RSS Series
 	 * 
 	 * @access		public
@@ -147,9 +172,9 @@ class CPT_Lowry_Podcasts extends RBM_CPT {
 
 			<itunes:author><?php echo get_option( '_rbm_lowry_podcast_author', 'Lowry Solutions' ); ?></itunes:author>
 			<itunes:summary>
-				<?php echo get_option( '_rbm_lowry_podcast_summary', 'Raising the Bar, brought to you by Lowry Solutions, the industry leader in AIDC, barcode and Blockchain technology, discusses the latest news and trends on barcode, RFID, Industrial Internet of Things (IioT), Managed Print Solutions, Enterprise Mobility, Blockchain and Industry 4.0. ' ); ?>
+				<?php echo strip_tags( get_option( '_rbm_lowry_podcast_summary', 'Raising the Bar, brought to you by Lowry Solutions, the industry leader in AIDC, barcode and Blockchain technology, discusses the latest news and trends on barcode, RFID, Industrial Internet of Things (IioT), Managed Print Solutions, Enterprise Mobility, Blockchain and Industry 4.0. ' ) ); ?>
 			</itunes:summary>
-			<itunes:subtitle><?php echo get_option( '_rbm_lowry_podcast_subtitle', '"Raising the Bar" brings the latest topics and discussions about barcode, RFID, IioT and Industry 4.0. ' ); ?></itunes:subtitle>
+			<itunes:subtitle><?php echo strip_tags( get_option( '_rbm_lowry_podcast_subtitle', '"Raising the Bar" brings the latest topics and discussions about barcode, RFID, IioT and Industry 4.0. ' ) ); ?></itunes:subtitle>
 			<itunes:owner>
 				<itunes:name><?php echo get_option( '_rbm_lowry_podcast_owner_name', 'Lowry Solutions' ); ?></itunes:name>
 				<itunes:email><?php echo get_option( '_rbm_lowry_podcast_owner_email', 'Market1@lowrysolutions.com' ); ?></itunes:email>
@@ -192,13 +217,14 @@ class CPT_Lowry_Podcasts extends RBM_CPT {
 				<itunes:duration><?php echo $duration; ?></itunes:duration>
 			<?php endif; ?>
 			<itunes:summary>
-				<?php echo get_the_content_feed( 'rss2' ); ?>
+				<?php echo strip_tags( get_the_content() ); ?>
 			</itunes:summary>
 			<itunes:image href="<?php echo ( $podcast_image_url ) ? convert_chars( $podcast_image_url ) : convert_chars( get_site_icon_url( 32 ) ); ?>"/>
 			<itunes:keywords>
 				<?php echo strip_tags( get_the_term_list( get_the_ID(), 'resource-tag', '', ',', '' ) ); ?>
 			</itunes:keywords>
 			<itunes:explicit><?php echo ( get_option( '_rbm_lowry_podcast_explicit', false ) ) ? 'Yes' : 'No'; ?></itunes:explicit>
+			<enclosure url="<?php the_guid(); ?>" length="<?php echo rbm_get_field( 'podcast_duration', get_the_ID() ); ?>" type="audio/mpeg" />
 
 		<?php
 		
