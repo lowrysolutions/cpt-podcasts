@@ -71,7 +71,7 @@ class CPT_Lowry_Podcasts extends RBM_CPT {
 	 * Add RSS Feed to <head>
 	 *
 	 * @access		public
-	 * @since		{{VERSION}}
+	 * @since		1.1.0
 	 * @return		void
 	 */
 	public function show_rss_feed() {
@@ -138,7 +138,7 @@ class CPT_Lowry_Podcasts extends RBM_CPT {
 	 * Add Podcast Namespaces
 	 * 
 	 * @access		public
-	 * @since		{{VERSION}}
+	 * @since		1.1.0
 	 * @return		void
 	 */
 	public function add_podcast_namespaces() {
@@ -154,7 +154,7 @@ class CPT_Lowry_Podcasts extends RBM_CPT {
 	 * Add information for the RSS Series
 	 * 
 	 * @access		public
-	 * @since		{{VERSION}}
+	 * @since		1.1.0
 	 * @return		void
 	 */
 	public function add_to_rss_channel() {
@@ -197,7 +197,7 @@ class CPT_Lowry_Podcasts extends RBM_CPT {
 	 * Add stuff to the inidividual RSS Item
 	 * 
 	 * @access		public
-	 * @since		{{VERSION}}
+	 * @since		1.1.0
 	 * @return		void
 	 */
 	public function add_to_rss_item() {
@@ -237,7 +237,7 @@ class CPT_Lowry_Podcasts extends RBM_CPT {
 	 * @param		integer $post_id Post ID
 	 *                               
 	 * @access		public
-	 * @since		{{VERSION}}
+	 * @since		1.1.0
 	 * @return		string  GUID
 	 */
 	public function the_guid( $guid, $post_id ) {

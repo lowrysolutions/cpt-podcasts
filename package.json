@@ -1,6 +1,6 @@
 {
 	"name": "Lowry_CPT_Podcasts",
-	"version": "0.1.0",
+	"version": "1.1.0",
 	"main": "gulpfile.js",
 	"dependencies": {},
 	"devDependencies": {

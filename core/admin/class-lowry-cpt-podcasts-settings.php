@@ -4,7 +4,7 @@
  *
  * Adds Settings for the Podcasts
  *
- * @since {{VERSION}}
+ * @since 1.1.0
  */
 
 // Exit if accessed directly
@@ -15,7 +15,7 @@ class Lowry_CPT_Podcasts_Settings {
 	/**
 	 * GF_ActOn constructor.
 	 *
-	 * @since {{VERSION}}
+	 * @since 1.1.0
 	 */
 	function __construct() {
 
@@ -29,7 +29,7 @@ class Lowry_CPT_Podcasts_Settings {
 	 * Register Settings using the WP Settings API
 	 * 
 	 * @access		public
-	 * @since		{{VERSION}}
+	 * @since		1.1.0
 	 * @return		void
 	 */
 	public function register_settings() {
@@ -55,7 +55,7 @@ class Lowry_CPT_Podcasts_Settings {
 	 * Add Settings Page for our Plugin
 	 * 
 	 * @access      public
-	 * @since       {{VERSION}}
+	 * @since       1.1.0
 	 * @return      void
 	 */
 	public function submenu_page() {
@@ -75,7 +75,7 @@ class Lowry_CPT_Podcasts_Settings {
 	 * Output Fields on the Settings Page
 	 * 
 	 * @access		public
-	 * @since		{{VERSION}}
+	 * @since		1.1.0
 	 * @return		void
 	 */
 	public function settings_page() {
@@ -137,7 +137,7 @@ class Lowry_CPT_Podcasts_Settings {
 	 * Returns Filterable Array of our Settings Fields
 	 * 
 	 * @access      private
-	 * @since       {{VERSION}}
+	 * @since       1.1.0
 	 * @return      array Settings Field Parameters. See RBM Field Helpers
 	 */
 	private function get_settings_fields() {
