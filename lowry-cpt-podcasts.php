@@ -186,6 +186,8 @@ if ( ! class_exists( 'Lowry_CPT_Podcasts' ) ) {
 			require_once Lowry_CPT_Podcasts_DIR . 'core/cpt/class-lowry-cpt-podcasts.php';
 			$this->cpt = new CPT_Lowry_Podcasts();
 			
+			require_once Lowry_CPT_Podcasts_DIR . 'core/admin/class-lowry-cpt-podcasts-settings.php';
+			
 		}
 		
 		/**
