@@ -132,6 +132,8 @@ class CPT_Lowry_Podcasts extends RBM_CPT {
 			)
 		);
 		
+		rbm_fh_init_field_group( 'default' );
+		
 	}
 	
 	/**
