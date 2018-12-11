@@ -3,7 +3,7 @@
  * Plugin Name: CPT Podcasts
  * Plugin URI: https://github.com/lowrysolutions/cpt-podcasts
  * Description: Creates the "Podcasts" Custom Post Type
- * Version: 1.1.1
+ * Version: 1.1.2
  * Text Domain: lowry-cpt-podcasts
  * Author: Eric Defore
  * Author URI: http://realbigmarketing.com/
